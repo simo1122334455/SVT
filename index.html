@@ -420,7 +420,7 @@ footer a:hover{color:var(--cyan)}
 <main id="page-mots" hidden></main>
 
 <footer><div class="wrap">
-  <p class="siteurl">Ce site : <b>simo1122334455.github.io/SVT</b></p>
+  <p class="siteurl">Ce site : <b>svt-rho.vercel.app</b></p>
   <h3>Sources</h3>
   <ol id="srclist"></ol>
   <h3 style="margin-top:22px">Images</h3>
@@ -928,8 +928,8 @@ function realMyelin(){
 
 
 /* ---------- adresse publique du site + QR code ---------- */
-const SITE_URL = "simo1122334455.github.io/SVT";
-const QR_IMG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAIIAQMAAAAxMoQgAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACcUlEQVR4nO3cMXLDIBCFYWlcuMwRfBQdzTqajuIjpEyREQksuyxgLHsSd/+rohh96nZYQJomQkifj1Dldu/37+HwTwQEBISHwlf5femFmFPYpymErR+OgICAcCScpOCsSchVSMZcfsecpUZJBWuGIyAgILwouCpUZUFAQED4sxBk0hMvYyI4ywgEBASEl4WmCqVM01X+SLfsOuKZTg0BAQHBhCpShWYRNuuz0j+cr0FAQEB4JHRxVWippz3RfyYICAgI7gYboWNyWxVrVEyuUTLcsiIgICAcCDFJkGmPi17mWVDxre1abBaEgICA8D7BbtFObZINcgXtTI7bQL8bBAQEhCa21nOtz/XpWlCOF+a6pCEgICCMBJclzXWc0CwN6fJymhSt/f0ICAgIlSBrQXtR8pmcAoZyrlhT9VkICAgIIyHOglK0z4qZQxPrs1xWeygCAgLCWMhLM9pYnaUGCSjvd+f9rGolp+7UEBAQEO4LTaqVHDlXHHTHXNJ0aggICAj3heqg8ObJ1Z7QnSve9d2p7mQyAgICQiXYWnA5SDyXkmRP0LXicxF0BAICAsITgnZSe7kMrWDRPgsBAQHhvYJ79yEmkVrFbOJUtrdylQsZREBAQBgJXWwedXVj8gbXLV24ByIgICA8ErpvULgbSnKNuvmSttojERAQEEZCtxYUdER1WfyT7qhvCAgICIdC8y3QL61RW17J+W6LVrefhYCAgPCk0OxXnf2bC1XbNaxRCAgICGMh6IhLuuXk+6zgf0dAQEA4EixL6qTcmwshCwbGNF+QQEBAQBgLVWwW5N+Nqt6+PF5tRkBAQPg3gRDS5geca6WnOIDrkgAAAABJRU5ErkJggg==";
+const SITE_URL = "svt-rho.vercel.app";
+const QR_IMG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAIIAQMAAAAxMoQgAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVR4nO3cQXLCMAyFYXdYdMkROIqPRo6Wo3AEll1kqmJLtmUnJDBtd//bhTgfO40lB0IghKxzli63x0ef8p3uXGXu78/r5XcEBASEXeEr1EQvtJzaB8NyBAQEhCPhpAVnykJXlC6PNZ+yhA+RYHe75QgICAhvCrkKqRByyZJUo8ouCAEBAeF3Qi5JqSilJPBDV7xeoxAQEBBMqIltF5QmOSXDLsgtR0BAQNgXurgadd3us7ogICAg7Amr1D5rGotSunwlCAgICO6Bk69RKdZnhUeNknzfnUbVTAgICAiHgqU8cs/DYfFv1Czpjvq63MChz0JAQED4J8Fe8xPfqflYpybmd+/sICAgIDwTXEpRqp1aKVmLnmfNeVtVh89XO1FHQEBAeCacWyemNWr1XvFGUcrgZBcICAgIz4SQa5DLWewlvylve/SdnKB9ll7W0VC08ywEBASEPcGKTuxrVLSHltJ4XUwQXV6CgICA8EywlMZKdJKjuVnbVfssN8lZdWoICAgIm8LwSO2jFMxFKdQKtrT7CAgICHtCneS04bAdPrXz7lVqH3ZHQEBAeEVIKVVI+vNuux/rpiiULwwICAgIB0J3vORmxSGU8+7QBKtR/Xk3AgICwv8J3Yl5rWMl7vebJd/leOuOgICAsCOsYjVKwZRhFhTKeRYCAgLCkTDMem4F6j+2onSzkpYzua9EQEBA2BbcpifWTkp0mtw9UvzhrT8EBASEPWH4L9BukiPtG2KBtjo1BAQEhJcE94iCbpLjfow52SoEBASENwR32nSxaU9+ZM4ly2VGQEBAOBRqonVSQQXJl3beLfnSlawrAgICwqHQpe6CtGR1257Z/5BhZ9qMgICA8GcCIWTMD0yUVU927f10AAAAAElFTkSuQmCC";
 function vizQR(host){
   const p = el("div","panel qrpane");
   p.innerHTML =
