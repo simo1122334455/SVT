@@ -1,0 +1,411 @@
+{
+  "titre": "Naît-on avec tous nos neurones ?",
+  "unites": {
+    "neurones": "milliards de neurones du cortex",
+    "synapses": "% du maximum",
+    "grise": "% du maximum",
+    "blanche": "% du maximum"
+  },
+  "series": [
+    {
+      "cle": "neurones",
+      "label": "Neurones du cortex",
+      "axe": "gauche",
+      "unite": " milliards",
+      "min": 0,
+      "max": 25,
+      "sources": "Larsen 2006, Kjær 2016, Pakkenberg 1997 (+ Spalding 2013)"
+    },
+    {
+      "cle": "synapses",
+      "label": "Synapses",
+      "axe": "droite",
+      "unite": " %",
+      "min": 0,
+      "max": 100,
+      "sources": "Huttenlocher 1979, Huttenlocher & Dabholkar 1997"
+    },
+    {
+      "cle": "grise",
+      "label": "Substance grise",
+      "axe": "droite",
+      "unite": " %",
+      "min": 0,
+      "max": 100,
+      "sources": "Bethlehem 2022"
+    },
+    {
+      "cle": "blanche",
+      "label": "Substance blanche",
+      "axe": "droite",
+      "unite": " %",
+      "min": 0,
+      "max": 100,
+      "sources": "Bethlehem 2022"
+    }
+  ],
+  "pics": [
+    { "cle": "grise", "age": 5.9, "label": "pic substance grise · 5,9 ans" },
+    { "cle": "blanche", "age": 28.7, "label": "pic substance blanche · 28,7 ans" },
+    { "cle": "synapses", "age_debut": 1, "age_fin": 2, "label": "pic synapses · 1–2 ans" }
+  ],
+  "points": [
+    {
+      "age": 0,
+      "label": "Naissance",
+      "label_court": "0",
+      "neurones": {
+        "valeur": 19.8,
+        "approx": false,
+        "method": "mesure",
+        "note": "Comptage direct (stéréologie) sur des cerveaux de nouveau-nés (Larsen 2006)."
+      },
+      "synapses": {
+        "valeur": 67,
+        "approx": true,
+        "method": "déduction",
+        "note": "À la naissance, le cortex frontal est à environ deux tiers de sa densité maximale de synapses (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 20,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 30,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 0.25,
+      "label": "3 mois",
+      "label_court": "3 m",
+      "neurones": {
+        "valeur": 20.7,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne des enfants de 0 à 3 ans (Kjær 2016) : dans cette tranche d'âge, le nombre ne change pas."
+      },
+      "synapses": {
+        "range": [67, 100],
+        "approx": true,
+        "method": "fourchette",
+        "note": "Ça dépend de la zone : l'audition est déjà à son maximum vers 3 mois, la zone frontale non (Huttenlocher & Dabholkar 1997)."
+      },
+      "grise": {
+        "valeur": 35,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 36,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 1,
+      "label": "1 an",
+      "label_court": "1",
+      "neurones": {
+        "valeur": 20.7,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne des enfants de 0 à 3 ans (Kjær 2016) : dans cette tranche d'âge, le nombre ne change pas."
+      },
+      "synapses": {
+        "valeur": 100,
+        "approx": true,
+        "method": "mesure",
+        "note": "Pic de densité des synapses dans la zone frontale, atteint entre 1 et 2 ans (Huttenlocher & Dabholkar 1997)."
+      },
+      "grise": {
+        "valeur": 67,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 48,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 3,
+      "label": "3 ans",
+      "label_court": "3",
+      "neurones": {
+        "valeur": 20.7,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne des enfants de 0 à 3 ans (Kjær 2016) : dans cette tranche d'âge, le nombre ne change pas."
+      },
+      "synapses": {
+        "valeur": 100,
+        "approx": true,
+        "method": "mesure",
+        "note": "La densité reste au niveau du pic pendant la petite enfance (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 95,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 67,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 6,
+      "label": "6 ans",
+      "label_court": "6",
+      "neurones": {
+        "valeur": 21,
+        "approx": true,
+        "method": "déduction",
+        "note": "Pas de comptage direct à cet âge : valeur située entre les enfants (Kjær 2016) et les adultes (Pakkenberg 1997)."
+      },
+      "synapses": {
+        "valeur": 100,
+        "approx": true,
+        "method": "mesure",
+        "note": "Toujours au niveau du pic avant la puberté (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 100,
+        "approx": true,
+        "method": "modèle",
+        "note": "Maximum de la courbe de référence, atteint vers 5,9 ans (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 81,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 12,
+      "label": "12 ans",
+      "label_court": "12",
+      "neurones": {
+        "valeur": 21,
+        "approx": true,
+        "method": "déduction",
+        "note": "Pas de comptage direct à cet âge : valeur située entre les enfants (Kjær 2016) et les adultes (Pakkenberg 1997)."
+      },
+      "synapses": {
+        "range": [67, 100],
+        "approx": true,
+        "method": "fourchette",
+        "note": "L'élagage commence à la puberté, mais pas au même moment dans toutes les zones (Huttenlocher & Dabholkar 1997)."
+      },
+      "grise": {
+        "valeur": 96,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 93,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 20,
+      "label": "20 ans",
+      "label_court": "20",
+      "neurones": {
+        "valeur": 22,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne des adultes jeunes parmi 94 cerveaux (Pakkenberg 1997) : environ 19 milliards chez les femmes, 23 chez les hommes."
+      },
+      "synapses": {
+        "valeur": 67,
+        "approx": true,
+        "method": "mesure",
+        "note": "Niveau adulte : environ deux tiers du pic de l'enfance (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 90,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 99,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 30,
+      "label": "30 ans",
+      "label_court": "30",
+      "neurones": {
+        "valeur": 22,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne de groupe sur 94 cerveaux de 20 à 90 ans (Pakkenberg 1997)."
+      },
+      "synapses": {
+        "valeur": 67,
+        "approx": true,
+        "method": "déduction",
+        "note": "Le niveau adulte reste stable pendant la vie adulte (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 84,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 100,
+        "approx": true,
+        "method": "modèle",
+        "note": "Maximum de la courbe de référence, atteint à 28,7 ans (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 50,
+      "label": "50 ans",
+      "label_court": "50",
+      "neurones": {
+        "valeur": 21,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne de groupe sur 94 cerveaux de 20 à 90 ans (Pakkenberg 1997) : la baisse est lente."
+      },
+      "synapses": {
+        "valeur": 67,
+        "approx": true,
+        "method": "déduction",
+        "note": "Le niveau adulte reste stable pendant la vie adulte (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 77,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 97,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    },
+    {
+      "age": 80,
+      "label": "80 ans",
+      "label_court": "80",
+      "neurones": {
+        "valeur": 20,
+        "approx": true,
+        "method": "moyenne de groupe",
+        "note": "Moyenne de groupe (Pakkenberg 1997) : environ 10 % de neurones du cortex en moins entre 20 et 90 ans."
+      },
+      "synapses": {
+        "valeur": 58,
+        "approx": true,
+        "method": "mesure",
+        "note": "Baisse de la densité des synapses chez les personnes âgées (Huttenlocher 1979)."
+      },
+      "grise": {
+        "valeur": 70,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      },
+      "blanche": {
+        "valeur": 89,
+        "approx": true,
+        "method": "modèle",
+        "note": "Courbe de référence construite à partir de dizaines de milliers d'IRM (Bethlehem 2022)."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "n": 1,
+      "texte": "Kjær M., Fabricius K., Sigaard R.K., Pakkenberg B. (2016), Neocortical Development in Brain of Young Children—A Stereological Study, Cerebral Cortex",
+      "url": "https://academic.oup.com/cercor/article/27/12/5477/3056491"
+    },
+    {
+      "n": 2,
+      "texte": "Larsen C.C., Bonde Larsen K., Bogdanovic N., Laursen H., Græm N., Badsberg Samuelsen G., Pakkenberg B. (2006), Total number of cells in the human newborn telencephalic wall, Neuroscience",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0306452206000583"
+    },
+    {
+      "n": 3,
+      "texte": "Pakkenberg B., Gundersen H.J.G. (1997), Neocortical neuron number in humans: Effect of sex and age, Journal of Comparative Neurology",
+      "url": "https://www.semanticscholar.org/paper/Neocortical-neuron-number-in-humans:-Effect-of-sex-Pakkenberg-Gundersen/475d6515d0552fb51820a23071104dc653853ab4"
+    },
+    {
+      "n": 4,
+      "texte": "Huttenlocher P.R. (1979), Synaptic density in human frontal cortex — Developmental changes and effects of aging, Brain Research",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/0006899379903494"
+    },
+    {
+      "n": 5,
+      "texte": "Huttenlocher P.R., Dabholkar A.S. (1997), Regional differences in synaptogenesis in human cerebral cortex, Journal of Comparative Neurology",
+      "url": "https://www.semanticscholar.org/paper/Regional-differences-in-synaptogenesis-in-human-Huttenlocher-Dabholkar/cbe39b3982489ad20a2f62469fcffe8ee64068ba"
+    },
+    {
+      "n": 6,
+      "texte": "Bethlehem R.A.I., Seidlitz J., White S.R. et al. (2022), Brain charts for the human lifespan, Nature",
+      "url": "https://www.nature.com/articles/s41586-022-04554-y"
+    },
+    {
+      "n": 7,
+      "texte": "Spalding K.L., Bergmann O., Alkass K. et al. (2013), Dynamics of Hippocampal Neurogenesis in Adult Humans, Cell",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0092867413005333"
+    },
+    {
+      "n": 8,
+      "texte": "Sorrells S.F., Paredes M.F., Cebrian-Silla A. et al. (2018), Human hippocampal neurogenesis drops sharply in children to undetectable levels in adults, Nature",
+      "url": "https://www.nature.com/articles/nature25975"
+    },
+    {
+      "n": 9,
+      "texte": "Boldrini M., Fulmore C.A., Tartt A.N. et al. (2018), Human Hippocampal Neurogenesis Persists throughout Aging, Cell Stem Cell",
+      "url": "https://www.cell.com/cell-stem-cell/fulltext/S1934-5909(18)30121-8"
+    },
+    {
+      "n": 10,
+      "texte": "Petanjek Z., Judaš M., Šimić G. et al. (2011), Extraordinary neoteny of synaptic spines in the human prefrontal cortex, PNAS",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1105108108"
+    },
+    {
+      "n": 11,
+      "texte": "Miller D.J., Duka T., Stimpson C.D. et al. (2012), Prolonged myelination in human neocortical evolution, PNAS",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1117943109"
+    },
+    {
+      "n": 12,
+      "texte": "Moreno-Jiménez E.P., Flor-García M., Terreros-Roncal J. et al. (2019), Adult hippocampal neurogenesis is abundant in neurologically healthy subjects and drops sharply in patients with Alzheimer's disease, Nature Medicine",
+      "url": "https://www.nature.com/articles/s41591-019-0375-9"
+    },
+    {
+      "n": 13,
+      "texte": "Goriely A. (2024), Eighty-six billion and counting: do we know the number of neurons in the human brain?, Brain",
+      "url": "https://academic.oup.com/brain/article/148/3/689/7909879"
+    }
+  ]
+}

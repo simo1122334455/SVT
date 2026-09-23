@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "D:\\SVT Reaserch\\index.html"
+        ],
+        "createdAt": "2026-09-23T19:41:18.847Z",
+        "reason": "user confirmed: brief demande explicitement un effet neon (neurones qui brillent, boutons lumineux, lignes lumineuses sur fond bleu nuit)"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "D:\\SVT Reaserch\\index.html"
+        ],
+        "createdAt": "2026-09-23T19:43:01.125Z",
+        "reason": "user confirmed: le brief demande une ambiance cerveau la nuit / ciel etoile sur fond bleu nuit"
+      }
+    ]
+  }
+}
