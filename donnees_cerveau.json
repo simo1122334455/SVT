@@ -45,9 +45,22 @@
     }
   ],
   "pics": [
-    { "cle": "grise", "age": 5.9, "label": "pic substance grise · 5,9 ans" },
-    { "cle": "blanche", "age": 28.7, "label": "pic substance blanche · 28,7 ans" },
-    { "cle": "synapses", "age_debut": 1, "age_fin": 2, "label": "pic synapses · 1–2 ans" }
+    {
+      "cle": "grise",
+      "age": 5.9,
+      "label": "pic substance grise · 5,9 ans"
+    },
+    {
+      "cle": "blanche",
+      "age": 28.7,
+      "label": "pic substance blanche · 28,7 ans"
+    },
+    {
+      "cle": "synapses",
+      "age_debut": 1,
+      "age_fin": 2,
+      "label": "pic synapses · 1–2 ans"
+    }
   ],
   "points": [
     {
@@ -90,7 +103,10 @@
         "note": "Moyenne des enfants de 0 à 3 ans (Kjær 2016) : dans cette tranche d'âge, le nombre ne change pas."
       },
       "synapses": {
-        "range": [67, 100],
+        "range": [
+          67,
+          100
+        ],
         "approx": true,
         "method": "fourchette",
         "note": "Ça dépend de la zone : l'audition est déjà à son maximum vers 3 mois, la zone frontale non (Huttenlocher & Dabholkar 1997)."
@@ -206,7 +222,10 @@
         "note": "Pas de comptage direct à cet âge : valeur située entre les enfants (Kjær 2016) et les adultes (Pakkenberg 1997)."
       },
       "synapses": {
-        "range": [67, 100],
+        "range": [
+          67,
+          100
+        ],
         "approx": true,
         "method": "fourchette",
         "note": "L'élagage commence à la puberté, mais pas au même moment dans toutes les zones (Huttenlocher & Dabholkar 1997)."
@@ -406,6 +425,16 @@
       "n": 13,
       "texte": "Goriely A. (2024), Eighty-six billion and counting: do we know the number of neurons in the human brain?, Brain",
       "url": "https://academic.oup.com/brain/article/148/3/689/7909879"
+    },
+    {
+      "n": 14,
+      "texte": "Paolicelli R.C., Bolasco G., Pagani F. et al. (2011), Synaptic pruning by microglia is necessary for normal brain development, Science",
+      "url": "https://www.science.org/doi/10.1126/science.1202529"
+    },
+    {
+      "n": 15,
+      "texte": "Schafer D.P., Lehrman E.K., Kautzman A.G. et al. (2012), Microglia sculpt postnatal neural circuits in an activity and complement-dependent manner, Neuron",
+      "url": "https://www.cell.com/neuron/fulltext/S0896-6273(12)00301-7"
     }
   ]
 }
