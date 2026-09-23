@@ -153,6 +153,14 @@ main[hidden]{display:none}
 .irmbar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px; flex-wrap:wrap}
 .irmbar span{font-size:12.5px; font-weight:800; color:var(--muted); letter-spacing:.4px}
 .btn.mini{padding:6px 12px; font-size:12.5px}
+.qrpane{display:flex; gap:22px; align-items:center; flex-wrap:wrap; justify-content:center}
+.qrbox{background:#fff; border-radius:18px; padding:12px; line-height:0; box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.qrbox img{width:clamp(150px,22vw,230px); height:auto; display:block; image-rendering:pixelated}
+.qrtxt{max-width:420px}
+.qrtitle{font-size:clamp(18px,2.4vw,26px); font-weight:900; margin-bottom:6px}
+.qrurl{font-size:clamp(15px,2vw,21px); font-weight:800; color:var(--cyan); word-break:break-all; margin-bottom:8px}
+.siteurl{margin:0 0 14px; font-size:13px; color:var(--muted)}
+.siteurl b{color:var(--cyan)}
 /* --- compteur en direct --- */
 .compteur{text-align:center; margin-bottom:14px}
 .cpbig{font-size:clamp(46px,11vw,86px); font-weight:900; line-height:1; color:#fff; text-shadow:0 0 34px rgba(34,229,255,.55)}
@@ -412,6 +420,7 @@ footer a:hover{color:var(--cyan)}
 <main id="page-mots" hidden></main>
 
 <footer><div class="wrap">
+  <p class="siteurl">Ce site : <b>simo1122334455.github.io/SVT</b></p>
   <h3>Sources</h3>
   <ol id="srclist"></ol>
   <h3 style="margin-top:22px">Images</h3>
@@ -915,6 +924,23 @@ function realMyelin(){
       '<text x="26" y="330" class="rlab" fill="#e8b9c8">axone (le câble)</text>'+
       '<line x1="60" y1="322" x2="46" y2="212" stroke="#e8b9c8" stroke-width="1" opacity=".7"/></g>'+
     '</svg>';
+}
+
+
+/* ---------- adresse publique du site + QR code ---------- */
+const SITE_URL = "simo1122334455.github.io/SVT";
+const QR_IMG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAIIAQMAAAAxMoQgAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACcUlEQVR4nO3cMXLDIBCFYWlcuMwRfBQdzTqajuIjpEyREQksuyxgLHsSd/+rohh96nZYQJomQkifj1Dldu/37+HwTwQEBISHwlf5femFmFPYpymErR+OgICAcCScpOCsSchVSMZcfsecpUZJBWuGIyAgILwouCpUZUFAQED4sxBk0hMvYyI4ywgEBASEl4WmCqVM01X+SLfsOuKZTg0BAQHBhCpShWYRNuuz0j+cr0FAQEB4JHRxVWippz3RfyYICAgI7gYboWNyWxVrVEyuUTLcsiIgICAcCDFJkGmPi17mWVDxre1abBaEgICA8D7BbtFObZINcgXtTI7bQL8bBAQEhCa21nOtz/XpWlCOF+a6pCEgICCMBJclzXWc0CwN6fJymhSt/f0ICAgIlSBrQXtR8pmcAoZyrlhT9VkICAgIIyHOglK0z4qZQxPrs1xWeygCAgLCWMhLM9pYnaUGCSjvd+f9rGolp+7UEBAQEO4LTaqVHDlXHHTHXNJ0aggICAj3heqg8ObJ1Z7QnSve9d2p7mQyAgICQiXYWnA5SDyXkmRP0LXicxF0BAICAsITgnZSe7kMrWDRPgsBAQHhvYJ79yEmkVrFbOJUtrdylQsZREBAQBgJXWwedXVj8gbXLV24ByIgICA8ErpvULgbSnKNuvmSttojERAQEEZCtxYUdER1WfyT7qhvCAgICIdC8y3QL61RW17J+W6LVrefhYCAgPCk0OxXnf2bC1XbNaxRCAgICGMh6IhLuuXk+6zgf0dAQEA4EixL6qTcmwshCwbGNF+QQEBAQBgLVWwW5N+Nqt6+PF5tRkBAQPg3gRDS5geca6WnOIDrkgAAAABJRU5ErkJggg==";
+function vizQR(host){
+  const p = el("div","panel qrpane");
+  p.innerHTML =
+    '<div class="qrbox"><img src="'+QR_IMG+'" alt="QR code vers le site"></div>'+
+    '<div class="qrtxt">'+
+      '<div class="qrtitle">Ouvre le site sur ton téléphone</div>'+
+      '<div class="qrurl">'+SITE_URL+'</div>'+
+      '<p class="tiny">Scanne le carré avec l\'appareil photo, ou tape l\'adresse. Tout est dedans : le graphique, les coupes IRM, le quiz et les fiches de vocabulaire.</p>'+
+    '</div>';
+  host.appendChild(p);
+  return {play(){}};
 }
 
 /* ---------- compteur en direct : les neurones qui naissent pendant la visite ---------- */
@@ -1932,7 +1958,7 @@ function buildBloc(def, variant){
     texte:"Un bébé fabrique-t-il ses neurones en grandissant ? On va suivre quatre courbes de la naissance à 80 ans : les neurones du cortex, les synapses, la substance grise et la substance blanche."}]
     .concat(BLOCS)
     .concat([{id:"fin", kicker:"Pour finir", titre:"🎯 " + T.t6,
-      texte:"Merci ! Toutes les sources sont en bas de la page « Explorer »."}]);
+      texte:"Merci ! Toutes les sources sont en bas de la page « Explorer ».", viz:vizQR}]);
 
   const built = [];
   let cur = 0;
