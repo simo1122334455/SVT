@@ -1,0 +1,7 @@
+# outils locaux (gardés sur le disque, hors du dépôt public)
+CLAUDE.md
+.claude/
+.impeccable/
+
+# captures d'écran de contrôle
+_audit/
