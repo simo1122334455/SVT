@@ -138,7 +138,7 @@ a.carte:hover { transform: translateY(-4px); border-color: var(--accent); }
 .chiffre small { display: block; font-family: var(--police-texte); font-size: var(--t-petit); font-weight: 700; color: var(--texte-2); letter-spacing: 0; margin-top: var(--e-2); }
 
 /* --- encadrés --- */
-.encadre { border-left: 5px solid var(--chaud); background: var(--chaud-doux); border-radius: var(--r-m); padding: var(--e-5); }
+.encadre { border: 1px solid color-mix(in srgb, var(--chaud) 45%, transparent); background: var(--chaud-doux); border-radius: var(--r-m); padding: var(--e-5); }
 .encadre .surtitre { color: var(--chaud); }
 .fil-rouge {
   display: grid; gap: var(--e-4); margin-top: var(--e-8); padding: var(--e-6); border-radius: var(--r-l);
