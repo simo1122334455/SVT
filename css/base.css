@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Base : remise à zéro, typographie, structure, navigation, composants communs
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
+body {
+  margin: 0; min-height: 100vh; background: var(--fond); color: var(--texte);
+  font-family: var(--police-texte); font-size: var(--t-base); line-height: 1.6;
+  overflow-x: hidden;
+}
+img, svg, canvas { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: var(--accent); text-underline-offset: .2em; }
+h1, h2, h3, h4 { font-family: var(--police-titre); line-height: 1.12; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+h1 { font-size: var(--t-h1); font-weight: 700; }
+h2 { font-size: var(--t-h2); font-weight: 700; }
+h3 { font-size: var(--t-h3); font-weight: 600; }
+p { margin: 0; text-wrap: pretty; }
+strong { font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* --- fond : réseau animé (canvas), lueurs et grain --- */
+#fond { position: fixed; inset: 0; z-index: -2; width: 100%; height: 100%; pointer-events: none; transition: opacity .6s; }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -3; pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 12% -8%, var(--lueur), transparent 60%),
+    radial-gradient(50rem 36rem at 100% 12%, var(--lueur-2), transparent 62%),
+    linear-gradient(180deg, var(--fond-2), var(--fond) 55%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain-opacite);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body.calme #fond { opacity: .45; }
+body.pause #fond { opacity: .25; }
+
+/* --- structure --- */
+.conteneur { width: min(100% - 2.5rem, var(--largeur)); margin-inline: auto; }
+.texte-court { max-width: var(--largeur-texte); }
+.page { padding-block: var(--e-7) var(--e-8); }
+.section { padding-block: var(--e-7); }
+.section > h2 { margin-bottom: var(--e-5); }
+.pile > * + * { margin-top: var(--e-4); }
+.pile-l > * + * { margin-top: var(--e-6); }
+.grille { display: grid; gap: var(--e-5); }
+.grille-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.grille-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.surtitre { font-family: var(--police-titre); font-size: var(--t-petit); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.chapeau { font-size: var(--t-grand); color: var(--texte-2); max-width: var(--largeur-texte); }
+.discret { color: var(--texte-2); }
+.titre-page { display: grid; gap: var(--e-4); margin-bottom: var(--e-7); }
+
+/* --- en-tête et navigation --- */
+.entete {
+  position: sticky; top: 0; z-index: 50; background: var(--surface-verre);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--bord);
+}
+.entete .conteneur { width: min(100% - 2rem, 96rem); display: flex; align-items: center; gap: var(--e-4); min-height: 4.25rem; }
+.marque { display: flex; align-items: center; gap: var(--e-3); color: var(--texte); text-decoration: none;
+  font-family: var(--police-titre); font-weight: 700; font-size: 1.15rem; white-space: nowrap; margin-right: auto; }
+.marque svg { width: 2rem; height: 2rem; flex: none; }
+.nav { display: flex; align-items: center; gap: var(--e-1); }
+.nav a, .nav .groupe > button {
+  display: inline-flex; align-items: center; gap: .35rem; padding: .55rem .8rem; border-radius: var(--r-s);
+  color: var(--texte); text-decoration: none; font-weight: 700; font-size: 1rem; white-space: nowrap; background: none; border: 0;
+  transition: background var(--duree);
+}
+.nav a:hover, .nav .groupe > button:hover { background: var(--accent-doux); }
+.nav a[aria-current="page"], .nav .groupe.actif > button { color: var(--accent); box-shadow: inset 0 -3px 0 var(--accent); }
+.groupe { position: relative; }
+.groupe > button svg { width: .8rem; transition: transform var(--duree); }
+.groupe[data-ouvert] > button svg { transform: rotate(180deg); }
+.sous-menu {
+  position: absolute; top: calc(100% + .4rem); left: 0; min-width: 15rem; padding: var(--e-2); display: none;
+  background: var(--surface); border: 1px solid var(--bord); border-radius: var(--r-m); box-shadow: var(--ombre);
+}
+.groupe[data-ouvert] .sous-menu { display: grid; }
+.sous-menu a { padding: .7rem .9rem; }
+.bouton-theme, .bouton-menu {
+  display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; flex: none;
+  border-radius: var(--r-rond); background: var(--surface-2); border: 1px solid var(--bord); color: var(--texte);
+}
+.bouton-theme svg, .bouton-menu svg { width: 1.3rem; height: 1.3rem; }
+.bouton-menu { display: none; }
+@media (max-width: 1320px) {
+  .bouton-menu { display: inline-grid; }
+  .nav {
+    position: fixed; inset: 4.25rem 0 auto 0; max-height: calc(100vh - 4.25rem); overflow-y: auto;
+    flex-direction: column; align-items: stretch; gap: var(--e-1); padding: var(--e-4) 1.25rem var(--e-6);
+    background: var(--surface); border-bottom: 1px solid var(--bord); box-shadow: var(--ombre); display: none;
+  }
+  .nav[data-ouvert] { display: flex; }
+  .nav a, .nav .groupe > button { padding: .85rem 1rem; font-size: 1.1rem; justify-content: space-between; width: 100%; }
+  .groupe > button { display: none !important; }
+  .sous-menu { position: static; display: grid; box-shadow: none; border: 0; background: none; padding: 0 0 0 var(--e-4); }
+  .sous-menu::before { content: "Pour aller plus loin"; font-family: var(--police-titre); font-weight: 700; font-size: .95rem;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--texte-2); padding: var(--e-3) var(--e-3) var(--e-1); }
+}
+
+/* --- pied de page --- */
+.pied { border-top: 1px solid var(--bord); padding-block: var(--e-6); color: var(--texte-2); font-size: var(--t-petit); }
+.pied .conteneur { display: flex; flex-wrap: wrap; gap: var(--e-3) var(--e-6); justify-content: space-between; }
+.pied a { color: var(--texte-2); }
+
+/* --- boutons --- */
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 3rem;
+  padding: .75rem 1.4rem; border-radius: var(--r-rond); border: 2px solid transparent; font-weight: 700;
+  text-decoration: none; background: var(--accent); color: var(--accent-encre);
+  transition: transform var(--duree) var(--courbe), box-shadow var(--duree), background var(--duree);
+}
+.bouton:hover { transform: translateY(-2px); box-shadow: 0 10px 26px var(--lueur); }
+.bouton.second { background: transparent; color: var(--texte); border-color: var(--bord-fort); }
+.bouton.second:hover { border-color: var(--accent); }
+.bouton.petit { min-height: 2.5rem; padding: .45rem 1rem; font-size: var(--t-petit); }
+.bouton[disabled] { opacity: .45; cursor: default; transform: none; box-shadow: none; }
+.bouton svg { width: 1.15em; height: 1.15em; }
+.rangee { display: flex; flex-wrap: wrap; gap: var(--e-3); align-items: center; }
+
+/* --- cartes --- */
+.carte {
+  background: var(--surface); border: 1px solid var(--bord); border-radius: var(--r-l); padding: var(--e-5);
+  box-shadow: var(--ombre-douce);
+}
+.carte.mise-en-avant { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--ombre); }
+a.carte { display: grid; gap: var(--e-3); color: var(--texte); text-decoration: none; transition: transform var(--duree) var(--courbe), border-color var(--duree); }
+a.carte:hover { transform: translateY(-4px); border-color: var(--accent); }
+.carte .icone { width: 3rem; height: 3rem; color: var(--accent); }
+.carte h3 { font-size: var(--t-grand); }
+
+/* --- chiffre clé --- */
+.chiffre { font-family: var(--police-titre); font-size: var(--t-chiffre); font-weight: 700; line-height: 1; color: var(--chaud); letter-spacing: -.02em; }
+.chiffre small { display: block; font-family: var(--police-texte); font-size: var(--t-petit); font-weight: 700; color: var(--texte-2); letter-spacing: 0; margin-top: var(--e-2); }
+
+/* --- encadrés --- */
+.encadre { border-left: 5px solid var(--chaud); background: var(--chaud-doux); border-radius: var(--r-m); padding: var(--e-5); }
+.encadre .surtitre { color: var(--chaud); }
+.fil-rouge {
+  display: grid; gap: var(--e-4); margin-top: var(--e-8); padding: var(--e-6); border-radius: var(--r-l);
+  background: linear-gradient(135deg, var(--accent-doux), transparent 70%), var(--surface); border: 1px solid var(--bord-fort);
+}
+.fil-rouge p { font-size: var(--t-grand); max-width: var(--largeur-texte); }
+
+/* --- mots du lexique et renvois aux sources --- */
+.terme {
+  display: inline; padding: 0 .1em; margin: 0; border: 0; background: none; color: inherit; font-weight: 700;
+  text-decoration: underline dashed var(--accent); text-decoration-thickness: 2px; text-underline-offset: .22em; cursor: help;
+}
+.terme:hover { color: var(--accent); }
+.cite { font-size: max(.8em, 14px); font-weight: 700; vertical-align: super; line-height: 0; text-decoration: none; padding: 0 .08em; }
+.cite:hover { text-decoration: underline; }
+.bulle {
+  position: absolute; z-index: 80; width: min(24rem, calc(100vw - 2rem)); padding: var(--e-4) var(--e-5);
+  background: var(--surface); border: 1px solid var(--accent); border-radius: var(--r-m); box-shadow: var(--ombre);
+  font-size: var(--t-petit); line-height: 1.55;
+}
+.bulle h4 { font-size: 1.15rem; color: var(--accent); margin-bottom: var(--e-2); }
+.bulle .rangee { margin-top: var(--e-3); justify-content: space-between; }
+.bulle button { background: none; border: 0; color: var(--texte-2); font-weight: 700; }
+
+/* --- puces et étiquettes --- */
+.puce { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: var(--r-rond);
+  font-size: var(--t-petit); font-weight: 700; background: var(--surface-2); border: 1px solid var(--bord); }
+.methode { font-size: .92rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--texte-2); }
+
+/* --- curseur (input range) --- */
+.curseur { -webkit-appearance: none; appearance: none; width: 100%; height: 2.5rem; background: transparent; cursor: pointer; }
+.curseur::-webkit-slider-runnable-track { height: .7rem; border-radius: var(--r-rond); border: 1px solid var(--bord-fort);
+  background: linear-gradient(90deg, var(--accent) calc(var(--p, 0) * 100%), var(--surface-2) calc(var(--p, 0) * 100%)); }
+.curseur::-moz-range-track { height: .7rem; border-radius: var(--r-rond); background: var(--surface-2); border: 1px solid var(--bord-fort); }
+.curseur::-moz-range-progress { height: .7rem; border-radius: var(--r-rond); background: var(--accent); }
+.curseur::-webkit-slider-thumb { -webkit-appearance: none; width: 1.9rem; height: 1.9rem; margin-top: -.65rem; border-radius: 50%;
+  background: var(--texte); border: 5px solid var(--accent); box-shadow: 0 0 0 6px var(--accent-doux); transition: transform var(--duree); }
+.curseur::-moz-range-thumb { width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--texte); border: 5px solid var(--accent); }
+.curseur:active::-webkit-slider-thumb { transform: scale(1.15); }
+.curseur:focus-visible { outline: none; }
+.curseur:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 6px var(--accent); }
+
+/* --- apparition au défilement --- */
+.apparait { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--courbe), transform .7s var(--courbe); }
+.apparait.vu { opacity: 1; transform: none; }
+
+/* --- illustration décorative --- */
+.deco { color: var(--accent); opacity: .9; }
+
+@media (max-width: 640px) {
+  .page { padding-block: var(--e-6) var(--e-7); }
+  .carte { padding: var(--e-4); border-radius: var(--r-m); }
+  .fil-rouge { padding: var(--e-5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .apparait { opacity: 1; transform: none; }
+}

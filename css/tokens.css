@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Variables du site : polices, couleurs (sombre / clair), espacements, formes
+   ========================================================================== */
+
+@font-face { font-family: "Space Grotesk"; src: url("../assets/fonts/space-grotesk.woff2") format("woff2");
+  font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../assets/fonts/atkinson-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../assets/fonts/atkinson-400-italique.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../assets/fonts/atkinson-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  /* polices */
+  --police-titre: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --police-texte: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+
+  /* tailles : lisibles du fond de la classe (jamais sous 16 px) */
+  --t-petit: 1rem;                                   /* 16 px */
+  --t-base: clamp(1.125rem, 0.35vw + 1rem, 1.3rem);  /* 18 → ~21 px */
+  --t-grand: clamp(1.25rem, 0.6vw + 1.05rem, 1.55rem);
+  --t-h3: clamp(1.35rem, 0.8vw + 1.1rem, 1.75rem);
+  --t-h2: clamp(1.8rem, 1.8vw + 1.2rem, 2.9rem);
+  --t-h1: clamp(2.2rem, 3.6vw + 1rem, 4.6rem);
+  --t-chiffre: clamp(2.6rem, 4vw + 1rem, 5rem);
+
+  /* espacements */
+  --e-1: 0.25rem; --e-2: 0.5rem; --e-3: 0.75rem; --e-4: 1rem; --e-5: 1.5rem;
+  --e-6: 2rem; --e-7: 3rem; --e-8: 4.5rem; --e-9: 6.5rem;
+  --largeur: 76rem; --largeur-texte: 46rem;
+
+  /* formes */
+  --r-s: 10px; --r-m: 16px; --r-l: 24px; --r-rond: 999px;
+  --duree: 220ms; --courbe: cubic-bezier(.22, 1, .36, 1);
+
+  /* --- thème sombre (par défaut) --- */
+  --fond: #060f29;
+  --fond-2: #0a1838;
+  --surface: #0e1c40;
+  --surface-2: #142650;
+  --surface-verre: rgba(14, 28, 64, .82);
+  --bord: rgba(150, 190, 255, .22);
+  --bord-fort: rgba(150, 190, 255, .42);
+  --texte: #f3f6ff;
+  --texte-2: #c9d5f0;
+  --accent: #38e4f0;          /* cyan : neurones, signaux, liens */
+  --accent-doux: rgba(56, 228, 240, .14);
+  --accent-encre: #03142b;    /* texte posé sur l'accent */
+  --chaud: #ffb84d;           /* ambre : chiffres clés, points forts */
+  --chaud-doux: rgba(255, 184, 77, .14);
+  --ok: #5ae6a6;
+  --non: #ff8a8a;
+  --debat: #c7a6ff;
+  --ombre: 0 18px 50px rgba(0, 0, 0, .38);
+  --ombre-douce: 0 8px 24px rgba(0, 0, 0, .25);
+  --lueur: rgba(56, 228, 240, .16);
+  --lueur-2: rgba(110, 90, 255, .12);
+  --grain-opacite: .05;
+
+  /* couleurs des courbes (graphiques uniquement) */
+  --d-neurones: #38e4f0;
+  --d-synapses: #ff7eb8;
+  --d-grise: #b693ff;
+  --d-blanche: #ffc65c;
+  --d-volume: #7fe39a;
+
+  color-scheme: dark;
+}
+
+/* --- thème clair : pour une salle lumineuse ou un projecteur délavé --- */
+:root[data-theme="clair"] {
+  --fond: #eef4ff;
+  --fond-2: #e2ecfd;
+  --surface: #ffffff;
+  --surface-2: #f2f6ff;
+  --surface-verre: rgba(255, 255, 255, .9);
+  --bord: #c4d4f0;
+  --bord-fort: #8fa9d6;
+  --texte: #081633;
+  --texte-2: #2c3f66;
+  --accent: #00616e;
+  --accent-doux: rgba(0, 97, 110, .1);
+  --accent-encre: #ffffff;
+  --chaud: #9a4f00;
+  --chaud-doux: rgba(154, 79, 0, .1);
+  --ok: #0f7a47;
+  --non: #b3261e;
+  --debat: #6b3fb8;
+  --ombre: 0 18px 44px rgba(20, 40, 90, .14);
+  --ombre-douce: 0 6px 18px rgba(20, 40, 90, .1);
+  --lueur: rgba(0, 150, 170, .1);
+  --lueur-2: rgba(90, 80, 220, .07);
+  --grain-opacite: .025;
+
+  --d-neurones: #007f8c;
+  --d-synapses: #c2186b;
+  --d-grise: #6a3fc4;
+  --d-blanche: #a86400;
+  --d-volume: #1f8a3c;
+
+  color-scheme: light;
+}
